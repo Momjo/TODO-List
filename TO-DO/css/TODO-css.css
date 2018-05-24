@@ -94,6 +94,16 @@ body {
     display: table;
     clear: both;
   }
+  .doneTaskHeader{
+    background-color: #2b2e4a;
+    padding: 51px 40px;
+    /* color: white; */
+    text-align: center;
+  }
+  .doneTaskHeader h2{
+    margin: 5px;
+    color: #00adb5;
+  }
   
   /* Style the input */
   input {
