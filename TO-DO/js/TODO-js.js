@@ -1,51 +1,68 @@
-function newElement() {
-	var li = document.createElement("li");
-	var inputValue = document.getElementById("myInput").value;
-	var t = document.createTextNode(inputValue);
-	li.appendChild(t);
-	if (inputValue === '') {
-	  alert("You must write something!");
-	} else {
-	  document.getElementById("myUL").appendChild(li);
-	}
-	document.getElementById("myInput").value = "";
+/**
+ * @param {Event} event 
+ * @param {object} element 
+ */
+function newTodo(event, element) {
 
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-	li.appendChild(span);
-	
-	for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
+  // Prevent page refresh
+  event.preventDefault();
+
+  // Get input
+  var input = $(element).children("[type=text]");
+
+  // Validate
+  if (!input.val()) {
+    return alert("You must enter a to do!");
   }
+
+  // Create a new to do element
+  var clone = $("#todo").prepend($("#clone .todo").clone()).children()[0];
+
+  // Set todo text
+  $(clone).children("span").text(input.val());
+
+  // Slide down todo
+  $(clone).hide().slideDown();
+
+  // Reset input
+  input.val("");
 }
 
-var list = document.querySelector('ul');
-var done = document.getElementById("doneTask").children;
-list.addEventListener('click', function(event) {
-	if (event.target.tagName === "LI") {
-		var cln = event.target.cloneNode(true);
-		document.getElementById("doneTask").appendChild(cln);
-		event.target.style.display = 'none';
-		cln.classList.toggle('checked');
-	}
-	for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
-}, false);
+/**
+ * @param {object} element 
+ */
+function moveTodo(element) {
 
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
+  // Don't move if removing
+  if ($(element).hasClass("removing")) {
+    return;
   }
+
+  // Move to #todo or #done?
+  var moveTo = $(element).parent("#done").length ? "#todo" : "#done";
+
+  // Move todo to the list (with slide animation)
+  $(element).slideUp(function() {
+    $(this).slideDown().detach().prependTo(moveTo);
+  });
+}
+
+/**
+ * @param {object} element 
+ */
+function removeTodo(element) {
+
+  // Get todo element
+  var todo = $(element).parent();
+
+  // Add removing class
+  todo.addClass("removing");
+
+  // Fade out and remove todo
+  todo.slideUp(function() {
+    $(this).remove();
+  });
+
+  // Remove the button
+  $(element).remove();
 }

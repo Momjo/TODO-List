@@ -1,39 +1,73 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/TODO-css.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,700">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/TODO-css.css">
+
+    <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+    <script src="js/TODO-js.js"></script>
 </head>
+
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="header">
-                    <h2>My To Do List</h2>
-                    <input type="text" id="myInput" placeholder="Title...">
-                    <span onclick="newElement()" class="addBtn">Add</span>
+        <div class="row my-5">
+
+            <!-- Todo -->
+            <div class="col-md-6">
+
+                <!-- Box -->
+                <div class="border">
+
+                    <!-- Header -->
+                    <div class="text-center bg-dark text-info py-5">
+                        <h2>My To Do List</h2>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="p-3">
+
+                        <!-- Add -->
+                        <form onsubmit="newTodo(event, this)">
+                            <input type="text" class="form-control form-control-lg" autocomplete="off" placeholder="Add" />
+                        </form>
+
+                        <!-- List -->
+                        <div class="list-group" id="todo"></div>
+                    </div>
                 </div>
-                <ul id="myUL">
-                    
-                </ul>
             </div>
 
-            <div class="col">
-                <div class="doneTaskHeader">
-                    <h2>Already Done</h2>
+            <!-- Done -->
+            <div class="col-md-6">
+
+                <!-- Box -->
+                <div class="border">
+
+                    <!-- Header -->
+                    <div class="text-center bg-dark text-info py-5">
+                        <h2>Already Done</h2>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="p-3">
+
+                        <!-- List -->
+                        <div class="list-group" id="done"></div>
+                    </div>
                 </div>
-                <ul id="doneTask">
-                   
-                </ul>
             </div>
-        
-         
         </div>
-            
     </div>
 
-<script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
-<script src="js/TODO-js.js"></script>
+    <!-- Elements to clone -->
+    <div id="clone" hidden>
+        <a class="list-group-item list-group-item-action mt-2 todo" onclick="moveTodo(this)">
+            <span>Sample todo</span>
+            <button class="btn btn-secondary btn-sm float-right" onclick="removeTodo(this)">X</button>
+        </a>
+    </div>
 </body>
+
 </html>
