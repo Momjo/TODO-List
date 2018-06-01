@@ -10,8 +10,9 @@ a {
     cursor: pointer;
 }
 
-input {
+.form-control {
     height: 57px;
+    border-radius: 0px;
 }
 
 
@@ -19,4 +20,10 @@ input {
 
 #done .todo:first-child {
     margin: 0 !important;
+}
+
+/* TODO Options */
+
+#moreOptions{
+    display: none;
 }
