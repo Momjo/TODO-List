@@ -8,7 +8,7 @@ function newTodo(event, element) {
   event.preventDefault();
 
   // Get input
-  var input = $(element).children("[type=text]");
+  var input = $(element).find('#input');
 
   // Validate
   if (!input.val()) {
@@ -65,4 +65,13 @@ function removeTodo(element) {
 
   // Remove the button
   $(element).remove();
+}
+
+function newTodoOptions(){
+
+  //add shadow class to div
+  $('#moreOptions').addClass('shadow');
+  
+  //todo option toggle slide
+  $('#moreOptions').slideToggle();
 }
