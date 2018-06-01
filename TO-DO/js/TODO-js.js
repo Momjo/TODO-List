@@ -68,6 +68,10 @@ function removeTodo(element) {
 }
 
 function newTodoOptions(){
+
+  //add shadow class to div
   $('#moreOptions').addClass('shadow');
+  
+  //todo option toggle slide
   $('#moreOptions').slideToggle();
 }
