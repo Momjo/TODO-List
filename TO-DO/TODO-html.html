@@ -2,12 +2,14 @@
 <html>
 
 <head>
+    <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,700">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/TODO-css.css">
 
     <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+    <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
     <script src="js/TODO-js.js"></script>
 </head>
 
@@ -34,7 +36,7 @@
                             <div class="input-group">
                                 <input type="text" id="input" class="form-control form-control-lg" autocomplete="off" placeholder="Add">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary"  onclick="newTodoOptions()" type="button">
+                                    <button class="btn btn-outline-secondary" onclick="newTodoOptions()" type="button">
                                         <i class="fa fa-angle-down more-Option-Icon" aria-hidden="true"></i>
                                     </button>
                                 </div>
@@ -43,21 +45,29 @@
 
                         <div id="moreOptions">
                             <div class="align-self-center">
-                                <div class="input-group w-85 p-4 ">
+                                <div class="input-group p-4">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">Description</span>
+                                        <span class="input-group-text" id="basic-addon1">
+                                            <i class="fa fa-calendar" ></i>
+                                        </span>
                                     </div>
-                                    <textarea class="form-control" rows="10" aria-label="With textarea"></textarea>
+                                    <div class="ui calendar" id="datePicker">
+                                        <div class="ui input">
+                                            <input type="text" id="dateInput" placeholder="Date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group p-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-pencil"></i>
+                                        </span>
+                                    </div>
+                                    <textarea class="form-control" type="text"  aria-label="With textarea" placeholder="Description..."></textarea>
                                 </div>
                             </div>
                         </div>
 
-                        <!--
-                            <form onsubmit="newTodo(event, this)">
-                                <input type="text" class="form-control form-control-lg" autocomplete="off" placeholder="Add">
-                            </form>
-                            <button class="float-right">dasda</button>
-                        -->
                         <!-- List -->
                         <div class="list-group" id="todo"></div>
                     </div>
