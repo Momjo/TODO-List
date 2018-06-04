@@ -74,4 +74,5 @@ function newTodoOptions(){
   
   //todo option toggle slide
   $('#moreOptions').slideToggle();
+  $('.more-Option-Icon').toggleClass("down");
 }

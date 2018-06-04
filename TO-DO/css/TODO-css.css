@@ -27,3 +27,11 @@ a {
 #moreOptions{
     display: none;
 }
+
+.more-Option-Icon{
+    transition: all .4s linear;
+}
+
+.more-Option-Icon.down{
+    transform:rotate(180deg);
+}
