@@ -6,6 +6,11 @@ body {
     background: whitesmoke;
 }
 
+#dateInput{
+    font-family: "Oswald", sans-serif;
+    font-size: 1.3rem;
+}
+
 a {
     cursor: pointer;
 }

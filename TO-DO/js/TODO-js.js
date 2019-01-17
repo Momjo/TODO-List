@@ -26,6 +26,9 @@ function newTodo(event, element) {
 
   // Reset input
   input.val("");
+  
+  // Hide the options Menu
+  $('#moreOptions').hide();
 }
 
 /**
@@ -75,4 +78,9 @@ function newTodoOptions(){
   //todo option toggle slide
   $('#moreOptions').slideToggle();
   $('.more-Option-Icon').toggleClass("down");
+  
+  // Added Date to TODO
+  $('#datePicker').calendar({
+    type: 'date'    
+  });
 }
